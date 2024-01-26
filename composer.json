@@ -1,0 +1,17 @@
+{
+    "name": "frank/twillio-sms",
+    "autoload": {
+        "psr-4": {
+            "Frank\\TwillioSms\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Frank Cairampoma",
+            "email": "ingfralch@gmail.com"
+        }
+    ],
+    "require": {
+        "twilio/sdk": "^7.14"
+    }
+}
