@@ -3,17 +3,29 @@
     // see https://getcomposer.org/doc/01-basic-usage.md
     require __DIR__ . '/vendor/autoload.php';
     use Twilio\Rest\Client;
-
     $sid    = "ACb1db216d0745b985252cad96efa929bb";
-    $token  = "4605ca3adca81623348495190b4f3422";
+    $token  = "";
+   
     $twilio = new Client($sid, $token);
 
-    $message = $twilio->messages
-      ->create("+51961610362", // to
+    $numbers = [
+      '+51961610362',
+      '+51955537957', 
+      '+51955547121'
+    ]; 
+
+    foreach ($numbers as $number) {
+     // recorrer y esperar a que se envie el codigo 
+     $message = $twilio->messages
+      ->create( $number, // to
         array(
           "from" => "+14406168287",
-          "body" => "Hola" 
+          "body" => "EL TICKET: 2-5728-67510-4 se ha pagado correctamente. ¡Gracias por tu confianza!**Credipyme**" 
         )
       );
 
-print($message->sid);
+      print($message->sid);
+    }; 
+
+    
+?>
